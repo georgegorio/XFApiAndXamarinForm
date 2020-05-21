@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:XFAuthentication.ViewModels"
+             x:Class="XFAuthentication.Views.EditIdeaPage">
+
+    <!--<ContentPage.BindingContext>
+        <vm:EditIdeaViewModel/>
+    </ContentPage.BindingContext>-->
+    <StackLayout>
+        <Entry Text="{Binding Idea.Title}"/>
+        <Entry Text="{Binding Idea.Description}"/>
+        <Entry Text="{Binding Idea.Category}"/>
+        <Button Command="{Binding EditCommand}" Text="Edit Idea"/>
+        <Button Command="{Binding DeleteCommand}" Text="Delete Idea"/>
+    </StackLayout>
+</ContentPage>

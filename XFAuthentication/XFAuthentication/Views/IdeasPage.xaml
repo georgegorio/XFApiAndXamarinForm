@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:XFAuthentication.ViewModels"
+             x:Class="XFAuthentication.Views.IdeasPage">
+
+    <ContentPage.BindingContext>
+        <vm:IdeasViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Command="{Binding LogoutCommand}" Clicked="Logout_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <!--<Entry Text="{Binding AccessToken}"/>-->
+        <Button Text="Get All Ideas" Command="{Binding GetIdeaCommand}"/>
+        <Button Text="New Idea" Clicked="Button_Clicked"/>
+        <Button Text="Search Idea" Clicked="SearchButton_Clicked"/>
+
+        <ListView ItemsSource="{Binding Ideas}" 
+                  HasUnevenRows="True"
+                  ItemTapped="IdeaListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Title}"/>
+                            <Label Text="{Binding Category}"/>
+                            <Label Text="{Binding Description}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
